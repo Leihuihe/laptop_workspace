@@ -1,0 +1,14 @@
+package objects;
+
+public class Adjuster {
+
+	public void contact_details()
+	{
+		
+	}
+	
+	public void Set_up_an_account()
+	{
+		
+	}
+}

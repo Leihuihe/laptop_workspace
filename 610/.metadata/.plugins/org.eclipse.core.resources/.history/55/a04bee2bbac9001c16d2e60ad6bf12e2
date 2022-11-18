@@ -1,0 +1,9 @@
+package objects;
+
+public class Manager {
+
+	public void create_account()
+	{
+		
+	}
+}

@@ -1,0 +1,21 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entity.Account;
+
+@RestController
+public class ThymeController {
+
+	@GetMapping("/all")
+	public String getAllacc(Model model)
+	{
+		List<Account> list = dao.findALl();
+		model.addAttribute("accounts", list);
+		return "account";
+	}
+}

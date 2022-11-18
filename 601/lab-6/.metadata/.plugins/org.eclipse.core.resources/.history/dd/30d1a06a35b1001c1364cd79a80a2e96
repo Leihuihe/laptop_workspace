@@ -1,0 +1,75 @@
+
+/*
+ * 
+ *   Quiz.java -> H6-5
+ *
+ */
+
+public class Quiz
+{
+	private Question[] questions;
+	private int numQuestions; 
+	private int numCorrect;
+	
+	public Quiz ()
+	{
+		questions = new Question[25];
+		numQuestions = 0;  // add will change this
+		numCorrect = 0;
+	}
+
+	public int getNumCorrect()
+	{
+		// an accessor ("getter") for QuizTime
+		
+		return this.numCorrect; 
+	}
+	
+	public int getNumQuestions()
+	{
+		// another getter for QuizTime
+		
+		return this.numQuestions;
+	}
+	
+	public void add(Question question)
+	{
+		// add question to theQuestions in next cell of questions
+		questions[this.numQuestions] = question;
+		this.numQuestions++;
+	}
+	
+	public void giveQuiz()
+	{
+		// for (int qnum=0; qnum<numQuestions; qnum++)
+		// {  
+		//		fetch theQuestions[questionNumber]
+		//
+		// 		print the question text
+		// 		print each alternative answer
+		// 		read user's answer ('A', 'B', or 'C')
+		//		grade the question: if correct, add 1 to this.numCorrect
+		for (int qnum=0; qnum<numQuestions; qnum++)
+		{
+			StdOut.println(questions[qnum]);
+			StdOut.println("Pls. enter your answer(A, B or C):");
+			char answer = StdIn.readChar();
+			if(questions[qnum].gradeQuestion(answer)>0)
+				this.numCorrect++;		
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		// not needed since QuizTime runs the application:
+		//	you can add and run simple tests here
+		Quiz quize = new Quiz();
+		Question question1 = new Question("Which of the following is a Java type", "int", "bool", "integer",'A');
+		Question question2 = new Question("Which of the following is not a Java type", "int", "bool", "boolean",'B');
+		quize.add(question1);
+		quize.add(question2);
+		quize.giveQuiz();
+//		StdOut.println("Your grades is: "+quize.getNumCorrect());
+	}
+
+}

@@ -1,0 +1,11 @@
+package objects;
+
+public class Manager {
+
+	Admin admin;
+	
+	public void create_account()
+	{
+		admin.set_up_an_account();
+	}
+}

@@ -1,0 +1,8 @@
+package assign;
+
+public class Product {
+	private String price;
+	private String quantity;
+	private String name;
+
+}

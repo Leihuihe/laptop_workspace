@@ -1,0 +1,16 @@
+/*
+ * 
+ * PP10_3.java -> h10-2
+ * 
+ */
+
+public class PP10_3
+{
+
+	public static void main(String[] args)
+	{
+		StdOut.println("Pls. enter a string");
+
+	}
+
+}

@@ -1,0 +1,31 @@
+/*
+ * 
+ * ReadPos.java -> h10-3
+ * 
+ */
+
+public class ReadPos
+{
+
+	public static double read_pos_double() throws NumberFormatException,OutOfRangeException 
+	{
+			
+		StdOut.print("Pls. enter a double value: ");
+		double d = StdIn.readDouble();
+		if(d <= 0.0)
+		{
+			throw new OutOfRangeException("Should be > 0.0");
+		}
+		if(s.equals("DONE"))
+		{
+			System.exit(0);
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		
+
+	}
+
+}

@@ -1,0 +1,255 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
+//
+// RationalNumber.java -> H9-2
+//
+
+// Modified for the homework problem...
+
+// 
+// From JF Chapter 4
+//
+//********************************************************************
+//  RationalNumber.java       Java Foundations
+//
+//  Represents one rational number with a numerator and denominator.
+//********************************************************************
+ 
+public class RationalNumber implements Comparable<RationalNumber>
+{
+	public static void main(String[] args)
+	{
+		RationalNumber[] bagOfFractions = new RationalNumber[201];
+		int nextPos = 0;
+		for (int den = 1; den <= 20; den++)
+			for (int num = 0; num < den; num++)
+				bagOfFractions[nextPos++] = new RationalNumber(num, den);
+		//Comparator<RationalNumber> comparator = new RationalComparator();
+		// sort the above!  
+		Arrays.sort(bagOfFractions, new RationalComparator());
+		// do this by creating a RationalComparator object rcObj
+		// then call:
+		
+		// Arrays.sort(bagOfFractions, rcObj);
+		
+		// print out the now-sorted "bag"
+		
+		for (RationalNumber rationalNumber : bagOfFractions)
+		{
+			StdOut.println(rationalNumber);
+		}
+
+	}
+ 
+	public boolean equals(Object obj)
+	{
+		// finish this
+		
+		// check if obj instance of RationalNumber & return false if so
+		
+		if (!(obj instanceof RationalNumber)) // not a RationalNumber object?
+			return false;
+		
+		// cast obj to RationalNumber
+		
+		RationalNumber ourRational = (RationalNumber)obj;
+		
+		// check if this is "equals" to obj
+		
+		return this.isLike(ourRational);
+	}
+	
+	private int numerator, denominator;
+
+	public int compareTo(RationalNumber rNum)
+	{
+		double thisValue = 1.0*this.numerator/this.denominator;
+		double rNumValue = 1.0*rNum.numerator/rNum.denominator; // finish this!
+		
+		if (Math.abs(thisValue-rNumValue) < 0.0001) // 99999/100000 vs 9999999/10000000
+		{
+			return 0; // they're equal... return 0
+			
+		}
+		else if (thisValue > rNumValue)
+		{
+			return +1;
+		}
+		else
+			return -1;
+		
+		// Why doesn't the following work as an alternative implementation?  We'll try it...
+		
+		// Implement this method so that it returns:
+		//
+		// 1 if this.numerator*rNum.denominator >
+		// rNum.numerator*this.denominator,
+		//
+		// 0 if they're equals,
+		//
+		// -1 otherwise
+		//
+		//
+		//  a/b > c/d ?? a*d > c*b
+	}
+
+	// -----------------------------------------------------------------
+	// Constructor: Sets up the rational number by ensuring a nonzero
+	// denominator and making only the numerator signed.
+	// -----------------------------------------------------------------
+	public RationalNumber(int numer, int denom)
+	{
+		if (denom == 0)
+			denom = 1;
+
+		// Make the numerator "store" the sign
+		if (denom < 0)
+		{
+			numer = numer * -1;
+			denom = denom * -1;
+		}
+
+		numerator = numer;
+		denominator = denom;
+
+		reduce();
+	}
+
+	// -----------------------------------------------------------------
+	// Returns the numerator of this rational number.
+	// -----------------------------------------------------------------
+	public int getNumerator()
+	{
+		return numerator;
+	}
+
+	// -----------------------------------------------------------------
+	// Returns the denominator of this rational number.
+	// -----------------------------------------------------------------
+	public int getDenominator()
+	{
+		return denominator;
+	}
+
+	// -----------------------------------------------------------------
+	// Returns the reciprocal of this rational number.
+	// -----------------------------------------------------------------
+	public RationalNumber reciprocal()
+	{
+		return new RationalNumber(denominator, numerator);
+	}
+
+	// -----------------------------------------------------------------
+	// Adds this rational number to the one passed as a parameter.
+	// A common denominator is found by multiplying the individual
+	// denominators.
+	// -----------------------------------------------------------------
+	public RationalNumber add(RationalNumber op2)
+	{
+		int commonDenominator = denominator * op2.getDenominator();
+		int numerator1 = numerator * op2.getDenominator();
+		int numerator2 = op2.getNumerator() * denominator;
+		int sum = numerator1 + numerator2;
+
+		return new RationalNumber(sum, commonDenominator);
+	}
+
+	// -----------------------------------------------------------------
+	// Subtracts the rational number passed as a parameter from this
+	// rational number.
+	// -----------------------------------------------------------------
+	public RationalNumber subtract(RationalNumber op2)
+	{
+		int commonDenominator = denominator * op2.getDenominator();
+		int numerator1 = numerator * op2.getDenominator();
+		int numerator2 = op2.getNumerator() * denominator;
+		int difference = numerator1 - numerator2;
+
+		return new RationalNumber(difference, commonDenominator);
+	}
+
+	// -----------------------------------------------------------------
+	// Multiplies this rational number by the one passed as a
+	// parameter.
+	// -----------------------------------------------------------------
+	public RationalNumber multiply(RationalNumber op2)
+	{
+		int numer = numerator * op2.getNumerator();
+		int denom = denominator * op2.getDenominator();
+
+		return new RationalNumber(numer, denom);
+	}
+
+	// -----------------------------------------------------------------
+	// Divides this rational number by the one passed as a parameter
+	// by multiplying by the reciprocal of the second rational.
+	// -----------------------------------------------------------------
+	public RationalNumber divide(RationalNumber op2)
+	{
+		return multiply(op2.reciprocal());
+	}
+
+	// -----------------------------------------------------------------
+	// Determines if this rational number is equal to the one passed
+	// as a parameter. Assumes they are both reduced.
+	// -----------------------------------------------------------------
+	public boolean isLike(RationalNumber op2)
+	{
+		if (op2.numerator==0)
+			return this.numerator==0;
+		else
+			return (numerator == op2.getNumerator() && denominator == op2.getDenominator());
+	}
+
+	// -----------------------------------------------------------------
+	// Returns this rational number as a string.
+	// -----------------------------------------------------------------
+	public String toString()
+	{
+		String result;
+
+		if (numerator == 0)
+			result = "0";
+		else if (denominator == 1)
+			result = numerator + "";
+		else
+			result = numerator + "/" + denominator;
+
+		return result;
+	}
+
+	// -----------------------------------------------------------------
+	// Reduces this rational number by dividing both the numerator
+	// and the denominator by their greatest common divisor.
+	// -----------------------------------------------------------------
+	private void reduce()
+	{
+		if (numerator != 0)
+		{
+			int common = gcd(Math.abs(numerator), denominator);
+
+			numerator = numerator / common;
+			denominator = denominator / common;
+		}
+		else
+		{
+			// could fix it here... but let's fix isLike() instead
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Computes and returns the greatest common divisor of the two
+	// positive parameters. Uses Euclid's algorithm.
+	// -----------------------------------------------------------------
+	private int gcd(int num1, int num2)
+	{
+		while (num1 != num2)
+			if (num1 > num2)
+				num1 = num1 - num2;
+			else
+				num2 = num2 - num1;
+
+		return num1;
+	}
+}

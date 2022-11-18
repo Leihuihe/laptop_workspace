@@ -1,0 +1,26 @@
+/*
+ * 
+ * PP10_1.java -> h10-1
+ * 
+ */
+
+public class PP10_1
+{
+
+	public static void main(String[] args)
+	{
+		StdOut.println("Pls. enter 10 intergers");
+		int sum = 0;
+		for(int i=0; i<2; i++)
+		{
+			try {
+				sum += Integer.parseInt(StdIn.readString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+
+	}
+
+}

@@ -1,0 +1,67 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entity.Account;
+
+import com.example.demo.repository.AccountDao;
+
+
+@RestController
+@RequestMapping("/account")
+public class AccountController {
+
+	private static final String PATH = "/error";
+
+    @RequestMapping(value = PATH)
+    public String error() {
+        return "Error handling";
+    }
+
+	
+	@Autowired
+	private AccountDao dao;
+	
+	@PostMapping("/save")
+	public Account save(@RequestBody Account account)
+	{
+		return dao.save(account);
+	}
+	
+	@PostMapping("/changepass")
+	//public String changePass(@PathVariable("id") String id, @PathVariable("pass") String pass)
+	public String changePass(@RequestBody Account account)
+	{
+		return dao.updatePass(account);
+	}
+	
+	@GetMapping()
+	public List<Account> getAllaccounts()
+	{
+		return dao.findALl();
+	}
+	
+	
+	
+	@GetMapping("/{id}")
+	public Account findaccount(@PathVariable int id)
+	{
+		return dao.findaccountById(id);
+	}
+	
+	@DeleteMapping("/{id}")
+	public String deleteaccount(@PathVariable int id)
+	{
+		return dao.deleteaccount(id);
+	}
+}

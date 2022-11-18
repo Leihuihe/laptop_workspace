@@ -1,0 +1,22 @@
+package objects;
+
+public class Adjuster {
+	
+	String adjuster_id;
+	
+	User user;
+	Security security;
+	
+	public void register_user_vehicle()
+	{
+		user.vehicle_and_insurance_details();
+		user.inspect_vehicle();
+		security.inspect_user_vehicle();
+		user.vehicle_registered();
+	}
+	
+	public void vehicle_inspection_is_completed()
+	{
+		
+	}
+}

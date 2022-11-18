@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Die&apos; to &apos;FairDie&apos;&#x0D;&#x0A;- Original project: &apos;lab_9_starting&apos;&#x0D;&#x0A;- Original element: &apos;Die&apos;&#x0D;&#x0A;- Renamed element: &apos;FairDie&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Die&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{Die.java[Die" matchStrategy="1" name="FairDie" qualified="false" references="true" similarDeclarations="false" stamp="1648772654770" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,24 @@
+/* 
+    PowerArray.java -> H7-3
+ */
+
+public class PowerArray
+{	
+	public static int[] buildPowerArray(int[] initArray, int exponent)
+	{
+		// finish this
+		int[] toReturn = new int[initArray.length];
+		for(int i=0; i<initArray.length; i++)
+		{
+			toReturn[i] = (int) Math.pow(initArray[i], exponent);
+		}
+		return null;
+	}
+	
+	public static void main(String[] args)
+	{
+		// create two different-length int arrays
+		
+	}
+
+}

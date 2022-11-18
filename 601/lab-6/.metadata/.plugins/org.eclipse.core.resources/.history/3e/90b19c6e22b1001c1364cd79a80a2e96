@@ -1,0 +1,61 @@
+/*
+ * 
+ * GPSDate.java -> H6-1
+ *
+ */
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class RationalTest
+{
+
+	@Test
+	public void testAddOneHalfByOneHalf()
+	{
+		RationalNumber oneHalf = new RationalNumber(1, 2);
+		RationalNumber oneHalfAgain = new RationalNumber(1, 2);
+
+		RationalNumber result = oneHalf.add(oneHalfAgain); // oneHalf + oneHalf
+
+		assertTrue("1/2+1/2 isn't 1?", result.isLike(new RationalNumber(1, 1)));
+	}
+
+	@Test
+	public void testMultiplyOneHalfByOneHalf()
+	{
+		RationalNumber oneHalf = new RationalNumber(1, 2);
+		RationalNumber oneHalfAgain = new RationalNumber(1, 2);
+
+		RationalNumber result = oneHalf.multiply(oneHalfAgain); // oneHalf *
+																// oneHalf
+
+		assertTrue("1/2*1/2 isn't 1/4?", result.isLike(new RationalNumber(1, 4)));
+	}
+	
+	@Test
+	public void testDivideOneHalfByOneHalf()
+	{
+		RationalNumber oneHalf = new RationalNumber(1, 2);
+		RationalNumber oneHalfAgain = new RationalNumber(1, 2);
+
+		RationalNumber result = oneHalf.divide(oneHalfAgain); // oneHalf *
+																// oneHalf
+
+		assertTrue("1/2/1/2 isn't 1?", result.isLike(new RationalNumber(1, 4)));
+	}
+	
+	@Test
+	public void testSubtractOneHalfByOneHalf()
+	{
+		RationalNumber oneHalf = new RationalNumber(1, 2);
+		RationalNumber oneHalfAgain = new RationalNumber(1, 2);
+
+		RationalNumber result = oneHalf.subtract(oneHalfAgain); // oneHalf *
+																// oneHalf
+
+		assertTrue("1/2-1/2 isn't 0?", result.isLike(new RationalNumber(1, 4)));
+	}
+
+}

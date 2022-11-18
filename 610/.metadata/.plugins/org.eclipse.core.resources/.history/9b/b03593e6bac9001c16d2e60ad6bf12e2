@@ -1,0 +1,14 @@
+package objects;
+
+public class Adjuster {
+
+	public void register_user_vehicle()
+	{
+		
+	}
+	
+	public void vehicle_inspection_is_completed()
+	{
+		
+	}
+}

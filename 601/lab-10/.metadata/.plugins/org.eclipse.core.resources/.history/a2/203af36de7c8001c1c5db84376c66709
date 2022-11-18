@@ -1,0 +1,31 @@
+/*
+ * 
+ * ReadPos.java -> h10-3
+ * 
+ */
+
+public class ReadPos
+{
+
+	public static double read_pos_double() throws StringTooLongException
+	{
+			
+		StdOut.print("Pls. enter a string(\"DONE\" to stop): ");
+		String s = StdIn.readString();
+		if(s.length()>=20)
+		{
+			throw new StringTooLongException("Should be < 20 chars");
+		}
+		if(s.equals("DONE"))
+		{
+			System.exit(0);
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		
+
+	}
+
+}

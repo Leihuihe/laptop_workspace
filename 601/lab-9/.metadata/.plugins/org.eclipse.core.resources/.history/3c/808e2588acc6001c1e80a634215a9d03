@@ -1,0 +1,16 @@
+/*
+ *  
+ * Lockable.java -> H9-3
+ * 
+ */
+
+
+public interface Lockable
+{
+	// complete this
+	public void setKey(int key);
+	public void lock();
+	public void unlock();
+	public boolean locked();
+}
+

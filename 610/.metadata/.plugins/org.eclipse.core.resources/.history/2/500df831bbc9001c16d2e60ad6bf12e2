@@ -1,0 +1,16 @@
+package objects;
+
+public class Adjuster {
+
+	Security security;
+	
+	public void register_user_vehicle()
+	{
+		
+	}
+	
+	public void vehicle_inspection_is_completed()
+	{
+		
+	}
+}

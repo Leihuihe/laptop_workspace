@@ -1,0 +1,19 @@
+/*
+ *  
+ * PP9_8.java -> H9-3
+ * 
+ */
+
+public class PP9_8
+{
+	
+	public static void main(String[] args)
+	{
+		// complete this
+		Coin coin = new Coin();
+		coin.flip();
+		StdOut.println(coin.toString());
+		
+	}
+
+}

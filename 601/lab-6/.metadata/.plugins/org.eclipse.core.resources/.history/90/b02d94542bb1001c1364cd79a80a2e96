@@ -1,0 +1,38 @@
+
+/*
+ * 
+ *   Question.java -> H6-5
+ *
+ */
+
+public class Question
+{
+
+	private String qText;
+	private String answerA;
+	private String answerB;
+	private String answerC;
+	private char correctAnswer; // oneof A, B, C
+	
+	public Question(String question, String ansA, String ansB, String ansC, char correct)
+	{
+		// finish this
+	}
+	
+	public String toString()
+	{
+		String result = "Question: "+this.qText+"?\n\n";
+		result = result+"A: "+this.answerA+"\n";
+		result = result+"B: "+this.answerB+"\n";
+		result = result+"C: "+this.answerC+"\n";
+		return result;
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+}

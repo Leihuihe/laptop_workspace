@@ -1,0 +1,50 @@
+/*
+ * 
+ * GPSDate.java -> L6-5
+ *
+ */
+
+public class GPSDate
+{
+	private int month;
+	private int day;
+	private int year;
+
+	public GPSDate(int m, int d, int y)
+	{
+		this.month = m;
+		this.day = d;
+		this.year = y;
+	}
+
+	/**
+	 * Check if current fields represent a valid date
+	 */
+	public boolean isValid()
+	{
+		if(year < 0)
+			return false;		
+		else if(month>12 || month<1)
+	        return false;
+	    else if(day<1)
+	        return false;
+	    else if((month==2 && day>28 && !isLeap(year)) || (month==2 && day>29 && isLeap(year)))
+	        return false;
+	    else if((month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) && day>31)
+	        return false;
+	    else if((month!=1 && month!=3 && month!=5 && month!=7 && month!=8 && month!=10 && month!=12)&&day>30)
+	        return false;
+	    else
+	        return true;
+	}
+	public boolean isLeap(int year)
+	{
+		return year % 400 == 0 || year % 100 != 0 && year % 4 == 0;
+	}
+
+
+	public static void main(String[] args)
+	{
+
+	}
+}

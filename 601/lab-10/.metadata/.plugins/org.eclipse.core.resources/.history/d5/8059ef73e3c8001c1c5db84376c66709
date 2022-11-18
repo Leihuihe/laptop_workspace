@@ -1,0 +1,42 @@
+/*
+ * 
+ * PP10_3.java -> h10-2
+ * 
+ */
+
+public class PP10_3
+{
+	class readString
+	{
+		public void readstring()
+		{
+			StdOut.print("Pls. enter a string(\"DONE\" to stop): ");
+			String s = StdIn.readString();
+			if(s.length()>=20)
+			{
+				throw new StringTooLongException("Should be < 20 chars");
+			}
+		}
+	}
+
+	public static void main(String[] args)
+	{
+
+		
+		StdOut.print("Pls. enter a string(\"DONE\" to stop): ");
+		String s = StdIn.readString();
+		try {
+			if(s.length()>=20)
+			{
+				throw new StringTooLongException("Should be < 20 chars");
+				StdOut.print("\nToo long, pls. re-enter: ");
+				s = StdIn.readString();
+			}
+			
+		} catch (Exception e) {
+			
+		}
+		
+	}
+
+}

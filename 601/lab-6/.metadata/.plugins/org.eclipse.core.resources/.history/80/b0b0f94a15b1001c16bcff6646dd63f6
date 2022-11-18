@@ -1,0 +1,56 @@
+/*
+ * 
+ *   GPSDateTest.java -> H6-1
+ *
+ */
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class GPSDateTest
+{
+
+	@Test
+//	public void fail()
+//	{
+//		Assert.fail("No tests yet.");
+//	}
+	public void test_invalidMonth1()
+	{
+		GPSDate date = new GPSDate(13,31,1999);
+		assertFalse(date.isValid());
+	}
+	public void test_invalidMonth2()
+	{
+		GPSDate date = new GPSDate(0,30,1999);
+		assertFalse(date.isValid());
+	}
+	public void test_invalidDay1()
+	{
+		GPSDate date = new GPSDate(1,32,1999);
+		assertFalse(date.isValid());
+	}
+	public void test_invalidDay2()
+	{
+		GPSDate date = new GPSDate(4,31,1999);
+		assertFalse(date.isValid());
+	}
+	public void test_invalidDay1ofLeap()
+	{
+		GPSDate date = new GPSDate(13,31,1999);
+		assertFalse(date.isValid());
+	}
+	public void test_invalidDay2ofLeap()
+	{
+		GPSDate date = new GPSDate(13,31,1999);
+		assertFalse(date.isValid());
+	}
+	public void test_invalidYear()
+	{
+		GPSDate date = new GPSDate(13,31,1999);
+		assertFalse(date.isValid());
+	}
+	// finish these
+}

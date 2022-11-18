@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 6 elements to &apos;he_h_8/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;he_lab_8&apos;&#x0D;&#x0A;- Destination element: &apos;he_h_8/src/(default package)&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     TestCraps.java&#x0D;&#x0A;     CrookedDie1.java&#x0D;&#x0A;     Dice.java&#x0D;&#x0A;     Die.java&#x0D;&#x0A;     CrookedDie2.java&#x0D;&#x0A;     CrapsGame.java" description="Copy compilation units" destination="=he_h_8/src&lt;" element1="/src&lt;{TestCraps.java" element2="/src&lt;{CrookedDie1.java" element3="/src&lt;{Dice.java" element4="/src&lt;{Die.java" element5="/src&lt;{CrookedDie2.java" element6="/src&lt;{CrapsGame.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1648241824862" units="6" version="1.0"/>
+</session>

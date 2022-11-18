@@ -1,0 +1,20 @@
+/*
+ * 
+ * PP10_3.java -> h10-2
+ * 
+ */
+
+public class PP10_3
+{
+
+	public static void main(String[] args)
+	{
+		StdOut.println("Pls. enter a string(\"DONE\" to stop): ");
+		String s = StdIn.readString();
+		if(s.length()>=20)
+		{
+			StdOut.println("Too long, pls. re-enter: ");
+		}
+	}
+
+}

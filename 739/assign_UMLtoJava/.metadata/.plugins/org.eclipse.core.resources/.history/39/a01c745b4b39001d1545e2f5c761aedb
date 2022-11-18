@@ -1,0 +1,12 @@
+package assign;
+
+public class Company extends Customer{
+	private String name;
+	  private String regno;
+  public Company(String address, String phone) {
+		super(address, phone);
+		// TODO Auto-generated constructor stub
+	}
+  
+	
+}
